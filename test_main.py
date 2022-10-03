@@ -24,7 +24,11 @@ def client():
 
 def test_health(client):
     response = client.get('/')
-    assert response.status_code == 404
+    # Asserting to True that the URL exist on this domain
+    assert response.status_code == 200
+    
+    # Asserting to False
+    # assert response.status_code == 404
     assert response.json == 'Healthy'
 
 
